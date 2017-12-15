@@ -1,0 +1,154 @@
+[ 2017-12-15T16:45:09+08:00 ] ::1 /team/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000052s ]
+INFO: [ app_init ] --END-- [ RunTime:0.038167s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010488s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010752s ]
+SQL: SHOW COLUMNS FROM `authmenu` [ RunTime:0.123212s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.014240s ]
+SQL: SELECT `auth_id` FROM `authmenu` WHERE ( auth_id= ) LIMIT 1   [ RunTime:0.013507s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `auth_id` FROM `authmenu` WHERE ( auth_id= ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `seo` [ RunTime:0.322946s ]
+SQL: SELECT * FROM `seo`  [ RunTime:0.000576s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.000795s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=1 )  [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `big` [ RunTime:0.077686s ]
+SQL: SELECT * FROM `big` WHERE ( big_status=1 ) ORDER BY sort_id desc  [ RunTime:0.131585s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000192s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000356s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.809999s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.810292s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.027919s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.028168s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.031669s ]
+INFO: [ app_end ] --END-- [ RunTime:0.031858s ]
+
+[ 2017-12-15T16:45:29+08:00 ] ::1 /team/index.php/Home/Index/build_html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000560s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000641s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+SQL: SHOW COLUMNS FROM `authmenu` [ RunTime:0.002848s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.000359s ]
+SQL: SELECT `auth_id` FROM `authmenu` WHERE ( auth_id= ) LIMIT 1   [ RunTime:0.000175s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `auth_id` FROM `authmenu` WHERE ( auth_id= ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `seo` [ RunTime:0.004182s ]
+SQL: SELECT * FROM `seo`  [ RunTime:0.000276s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.000420s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=1 )  [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `big` [ RunTime:0.002630s ]
+SQL: SELECT * FROM `big` WHERE ( big_status=1 ) ORDER BY sort_id desc  [ RunTime:0.000321s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000083s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000161s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013711s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013782s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000373s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000425s ]
+
+[ 2017-12-15T16:45:52+08:00 ] ::1 /team/index.php/Home/Second/index/name/aa83f89ec16fd0c0b6f2777b025d7482/gbrk/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000570s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `authmenu` [ RunTime:0.003269s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.000429s ]
+SQL: SELECT `auth_id` FROM `authmenu` WHERE ( auth_id=48 ) LIMIT 1   [ RunTime:0.000235s ]
+SQL: SHOW COLUMNS FROM `seo` [ RunTime:0.002904s ]
+SQL: SELECT * FROM `seo`  [ RunTime:0.000343s ]
+SQL: SELECT `auth_id` FROM `authmenu` WHERE ( auth_id=48 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SELECT * FROM `authmenu` WHERE `auth_class` = 48 AND `auth_category` = 2 AND `auth_level` = 0  [ RunTime:0.000361s ]
+SQL: SELECT * FROM `authmenu` WHERE `auth_class` = 48 AND `auth_category` = 2 AND `auth_level` = 1  [ RunTime:0.000323s ]
+SQL: SELECT `auth_id` FROM `authmenu` WHERE `auth_pid` = 48 AND `auth_a` = 'index' AND `auth_category` = 2 AND `auth_level` = 1 LIMIT 1   [ RunTime:0.000284s ]
+SQL: SELECT `auth_c` FROM `authmenu` WHERE ( auth_pid=48 ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SHOW COLUMNS FROM `group` [ RunTime:0.021866s ]
+SQL: SELECT `title`,`content`,`createTime`,`count` FROM `group` WHERE `parent` = 52 AND `status` = 1 LIMIT 1   [ RunTime:0.000394s ]
+SQL: UPDATE `group` SET `count`=count+1 WHERE ( parent=52 ) [ RunTime:0.034314s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000251s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000477s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045813s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046107s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001116s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001374s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001949s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002277s ]
+
+[ 2017-12-15T16:45:53+08:00 ] ::1 /team/index.php/Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000578s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000653s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000737s ]
+SQL: SHOW COLUMNS FROM `authmenu` [ RunTime:0.002927s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.000391s ]
+SQL: SELECT `auth_id` FROM `authmenu` WHERE ( auth_id= ) LIMIT 1   [ RunTime:0.000142s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `auth_id` FROM `authmenu` WHERE ( auth_id= ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `seo` [ RunTime:0.002845s ]
+SQL: SELECT * FROM `seo`  [ RunTime:0.000258s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.000323s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=1 )  [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `big` [ RunTime:0.002919s ]
+SQL: SELECT * FROM `big` WHERE ( big_status=1 ) ORDER BY sort_id desc  [ RunTime:0.000290s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012524s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012606s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000383s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000443s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000558s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000620s ]
+
+[ 2017-12-15T16:45:59+08:00 ] ::1 /team/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000565s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000839s ]
+SQL: SHOW COLUMNS FROM `authmenu` [ RunTime:0.002641s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.000389s ]
+SQL: SELECT `auth_id` FROM `authmenu` WHERE ( auth_id= ) LIMIT 1   [ RunTime:0.000142s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `auth_id` FROM `authmenu` WHERE ( auth_id= ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `seo` [ RunTime:0.002500s ]
+SQL: SELECT * FROM `seo`  [ RunTime:0.000231s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=0 )  [ RunTime:0.000361s ]
+SQL: SELECT * FROM `authmenu` WHERE ( auth_category=2 and auth_level=1 )  [ RunTime:0.000286s ]
+SQL: SHOW COLUMNS FROM `big` [ RunTime:0.003282s ]
+SQL: SELECT * FROM `big` WHERE ( big_status=1 ) ORDER BY sort_id desc  [ RunTime:0.000285s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014758s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014877s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000441s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000533s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000594s ]
+

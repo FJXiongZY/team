@@ -1,0 +1,52 @@
+
+		<include file="Index/top"/>
+		
+		<!--网站内容-->
+		<div class="container" id="secondBody">
+			<div class="col-md-3" id="left">
+					<div class="left_location text-center">
+						<p>{$parentInfo.auth_name}</p>
+					</div>
+					<div class="left_nav">
+						<ul class="nav nav-pills nav-stacked text-center">
+							<volist name="sonInfo" id="sonInfo">
+								<li <if condition="$gbrkName eq $sonInfo['auth_a']">class="active"</if> ><a href="__MODULE__/{$parentInfo.auth_c}/{$parentInfo.auth_a}/name/{$parentInfo.auth_id|md5Pid}/gbrk/{$sonInfo.auth_a}">{$sonInfo.auth_name}</a></li>
+							</volist>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-9" id="right">
+					<ul class="breadcrumb hidden-xs">
+						<li><span class="glyphicon glyphicon-map-marker"></span>&nbsp;当前位置：</li>
+						<li><a href="__MODULE__/Index/index">首页</a></li>
+						<li><a href="javascript:;">{$parentInfo.auth_name}</a></li>
+						<li class="active"><a href="javascript:;">{$data.title}</a></li>
+					</ul>
+					<div class="right_title text-center">
+						<h3>{$data.title}</h3>
+						<ol class="list-inline">
+							<li>{$data.createTime|date="Y-m-d H:m:s",###}</li>
+							<li>{$data.count}人浏览</li>
+						</ol>
+					</div>
+					<div>
+						{:htmlspecialchars_decode($data['content'])}
+					</div>
+					
+				</div>
+		</div>
+		<!--/网站内容-->
+		
+		<!--页脚-->
+		<include file="Index/footer"/>
+		<!--/页脚-->
+		
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="__PUBLIC__/Home/js/jquery-1.11.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+		<script src="__PUBLIC__/Home/js/index.js"></script>
+	</body>
+
+</html>

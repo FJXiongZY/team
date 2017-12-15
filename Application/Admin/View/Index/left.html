@@ -1,0 +1,42 @@
+<!-- 左侧 -->
+<div class="page-sidebar" id="sidebar">
+
+<div class="sidebar-wrap" id="side_left">
+    <div class="panel-group" id="panelParent">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a href="__MODULE__/Index/index" data-parent="#panelParent" >
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;首页<i class="glyphicon glyphicon-chevron-right pull-right"></i>
+                    </a>
+                </h3>
+            </div>
+        </div>
+        <volist name="info1" id="vo1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a href="#" data-toggle="collapse" data-target="#show{$vo1.auth_id}" data-parent="#panelParent" >
+                        <span class="menu-icon {$vo1.auth_icon}"></span>&nbsp;&nbsp;&nbsp;{$vo1.auth_name}<i class="glyphicon glyphicon-chevron-right pull-right"></i>
+                    </a>
+                </h3>
+            </div>
+            <div class="collapse panel-collapse collapse" id="show{$vo1.auth_id}">
+                <div class="panel-body">
+                    <ul>
+                        <volist name="info2" id="vo2">
+                            <if condition="$vo2['auth_pid'] eq $vo1['auth_id']">
+                            <li><a href="__MODULE__/{$vo2.auth_c}/{$vo2.auth_a}?parent={$vo2.auth_pid|md5Pid}">{$vo2.auth_name}</a></li>
+                            </if>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </volist>
+
+    </div>
+</div>
+</div>
+<!-- /左侧 -->

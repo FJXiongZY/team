@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>系统管理-查看在线用户</title>
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__PUBLIC__/Admin/style/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/font-awesome.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/weather-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/style/iconfont.css">
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__PUBLIC__/Admin/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/Admin/style/demo.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/typicons.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/style/Admin.css">
+    
+</head>
+<body>
+    <!-- 头部 -->
+    <include file="Index/head"/>
+    <!-- /头部 -->
+    
+    <div class="main-container container-fluid">
+        <div class="page-container">
+            
+            <include file="Index/left"/>
+            <!-- 右侧内容 -->
+            <div class="page-content">
+                <!-- 面包屑导航 -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="__MODULE__/Index/index">首页</a>
+                        </li>
+                        <li class="active">查看在线用户</li>
+                    </ul>
+                </div>
+                <!-- /面包屑导航 -->
+                <!-- 列表内容 -->
+                <div class="page-body">
+                    <div class="userCount">
+                        <label for="">当前在线用户人数: <b>{$inline}</b></label>
+                    </div>
+                    <div>
+                        <label>当前在线用户：</label>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>用户名</th>
+                                    <th>登录ip</th>
+                                    <th>登录地址</th>
+                                    <th>登录时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="array" id="vo">
+                                <tr>
+                                    <td>{$vo.admin_id}</td>
+                                    <td>{$vo.admin_name}</td>
+                                    <td>{$vo.admin_ip}</td>
+                                    <td>{$vo.admin_ip|getIpCity}</td>
+                                    <td>{$vo.admin_logTime|date='Y-m-d H:m:s',###}</td>
+                                </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /列表内容 -->
+            </div>
+            <!-- /右侧内容 -->
+        </div>
+    </div>
+    <!--Basic Scripts-->
+    <script src="__PUBLIC__/Admin/style/jquery_002.js"></script>
+    <script src="__PUBLIC__/Admin/style/bootstrap.js"></script>
+    <script src="__PUBLIC__/Admin/style/jquery.js"></script>
+    <!--Beyond Scripts-->
+    <script src="__PUBLIC__/Admin/style/beyond.js"></script>
+    <script src="__PUBLIC__/Admin/style/beyond.js"></script>
+    
+    
+</body></html>

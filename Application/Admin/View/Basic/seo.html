@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>系统管理-SEO管理</title>
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__PUBLIC__/Admin/style/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/font-awesome.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/weather-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/style/iconfont.css">
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__PUBLIC__/Admin/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/Admin/style/demo.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/typicons.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/style/Admin.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <include file="Index/head"/>
+    <!-- /头部 -->
+    
+    <div class="main-container container-fluid">
+        <div class="page-container">
+
+            <!-- 左侧 -->
+            <include file="Index/left"/>
+            <!-- 左侧 -->
+            
+            <!-- 右侧内容 -->
+            <div class="page-content">
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li><a href="__MODULE__/Index/index">首页</a></li>
+                        <li class="active">SEO信息</li>
+                    </ul>
+                </div>
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-header bordered-bottom bordered-blue">
+                                    <span class="widget-caption">SEO信息</span>
+                                </div>
+                                <div class="widget-body">
+                                    <div id="horizontal-form">
+                                        <form class="form-horizontal" id="updateForm" role="form">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right">title</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" id="title" value="{$seoInfo.title}" name="title" required="required" type="text">
+                                                </div>
+                                                <p class="help-block col-sm-4 red">* 必填</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right">关键字</label>
+                                                <div class="col-sm-6">
+                                                    <textarea name="keyword" class="form-control" id="keyWord" rows="5">{$seoInfo.keyword}</textarea>
+                                                </div>
+                                                <p class="help-block col-sm-4 red">* 必填</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right">描述</label>
+                                                <div class="col-sm-6">
+                                                    <textarea name="describe" id="describe" class="form-control" rows="5">{$seoInfo.describe}</textarea>
+                                                </div>
+                                                <p class="help-block col-sm-4 red">* 必填</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <input type="hidden" name="identify" value="{$identify}">
+                                                    <button type="submit" class="btn btn-info">保存信息</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧内容 -->
+
+        </div>
+    </div>
+    <!--Basic Scripts-->
+    <script src="__PUBLIC__/Admin/style/jquery_002.js"></script>
+    <script src="__PUBLIC__/Admin/style/bootstrap.js"></script>
+    <script src="__PUBLIC__/Admin/style/jquery.js"></script>
+    <!--Beyond Scripts-->
+    <script src="__PUBLIC__/Admin/style/beyond.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/style/dialog/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/style/dialog.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Common/js/common.js"></script>
+    <script>
+        $("#updateForm").submit(function(){
+            var url = '__SELF__';
+            var data = $(this).serialize();
+            if (!$('#title').val()) {
+                dialog.error("title不能为空");
+            }else if (!$('#keyWord').val()) {
+                dialog.error("关键字不能为空");
+            }else if (!$('#describe').val()) {
+                dialog.error("描述不能为空");
+            }else{
+                ajaxFn(url,data,url);
+            }
+            return false;
+        })
+    </script>
+    
+</body></html>

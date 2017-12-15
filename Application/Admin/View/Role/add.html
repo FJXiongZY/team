@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>管理员-添加角色</title>
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__PUBLIC__/Admin/style/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/font-awesome.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/weather-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/style/iconfont.css">
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__PUBLIC__/Admin/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/Admin/style/demo.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/typicons.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/style/Admin.css">
+    
+</head>
+<body>
+    <!-- 头部 -->
+    <include file="Index/head"/>
+    <!-- /头部 -->
+    
+    <div class="main-container container-fluid">
+        <div class="page-container">
+            <!-- 左侧 -->
+            <include file="Index/left"/>
+            <!-- /左侧 -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="__MODULE__/Index/index">首页</a>
+                        </li>
+                        <li>
+                            <a href="__MODULE__/Role/showList">角色管理</a>
+                        </li>
+                        <li class="active">添加角色</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+<!-- Page Body -->
+<div class="page-body">
+    
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="widget">
+                <div class="widget-header bordered-bottom bordered-blue">
+                    <span class="widget-caption">新增角色</span>
+                </div>
+                <div class="widget-body">
+                    <div id="horizontal-form">
+                        <form class="form-horizontal" role="form" id="myform">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label no-padding-right">角色名</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="name" placeholder="请输入角色名" name="name" required="required" type="text">
+                                </div>
+                                <p class="help-block col-sm-4 red">* 必填</p>
+                                <input type="hidden" name="identify" value="{$identify}">
+                            </div>
+                            <div class="form-group">
+                                <label for="role_auth_ids" class="col-sm-2 control-label no-padding-right">权限分配</label>
+                                <div class="col-sm-6">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <volist name="authParent" id="vo1">
+    <div class="panel panel-info">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{$vo1.auth_id}" aria-expanded="true" aria-controls="collapseOne">
+                {$vo1.auth_name}
+            </a>
+            </h4>
+        </div>
+        <div id="collapseOne{$vo1.auth_id}" class="panel-collapse collapse <if condition='$i eq 1'>in</if>" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <input type="checkbox" class="checkbox-inline" name="auth[]" value="{$vo1.auth_id}">{$vo1.auth_name}<br>
+                <volist name="authSon" id="vo2">
+                    <if condition="$vo2['auth_pid'] eq $vo1['auth_id']">
+                        <input type="checkbox" name="auth[]" class="checkbox-inline" value="{$vo2.auth_id}">{$vo2.auth_name}
+                    </if>
+                </volist>
+            </div>
+        </div>
+    </div>
+    </volist>
+</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-info">保存信息</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+    </div>
+    <!--Basic Scripts-->
+    <script src="__PUBLIC__/Admin/style/jquery_002.js"></script>
+    <script src="__PUBLIC__/Admin/style/bootstrap.js"></script>
+    <script src="__PUBLIC__/Admin/style/jquery.js"></script>
+    <!--Beyond Scripts-->
+    <script src="__PUBLIC__/Admin/style/beyond.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/style/dialog/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/style/dialog.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Common/js/common.js"></script>
+    <script>
+        $("#myform").submit(function(){
+            var url = '__SELF__';
+            var data = $(this).serialize();
+            var successUrl = '{:U("Admin/Role/showList")}';
+            ajaxFn(url,data,successUrl);
+            return false;
+        })
+    </script>
+    
+</body></html>

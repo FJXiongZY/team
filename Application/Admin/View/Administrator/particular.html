@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>后台管理-查看用户</title>
+		<meta name="description" content="Dashboard">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!--Basic Styles-->
+		<link href="__PUBLIC__/Admin/style/bootstrap.css" rel="stylesheet">
+		<link href="__PUBLIC__/Admin/style/font-awesome.css" rel="stylesheet">
+		<link href="__PUBLIC__/Admin/style/weather-icons.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/style/iconfont.css">
+		<!--Beyond styles-->
+		<link id="beyond-link" href="__PUBLIC__/Admin/style/beyond.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/Admin/style/demo.css" rel="stylesheet">
+		<link href="__PUBLIC__/Admin/style/typicons.css" rel="stylesheet">
+		<link href="__PUBLIC__/Admin/style/animate.css" rel="stylesheet">
+		<link rel="stylesheet" href="__PUBLIC__/Admin/style/Admin.css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/style/userInfo.css" />
+	</head>
+	<body>
+		<!-- 头部 -->
+		<include file="Index/head"/>
+		<!-- /头部 -->
+		<div class="main-container container-fluid">
+			<div class="page-container">
+				<include file="Index/left"/>
+				<div class="page-content">
+					<div class="page-breadcrumbs">
+	                    <ul class="breadcrumb">
+	                        <li>
+	                            <a href="__MODULE__/Index/index">首页</a>
+	                        </li>
+	                        <li>
+	                            <a href="__MODULE__/Administrator/showList">用户管理</a>
+	                        </li>
+	                        <li class="active">用户详细</li>
+	                    </ul>
+	                </div>
+					<div class="page-body">
+						<div class="top">
+							<div class="media">
+								<div class="media-left text-center">
+									<div class="userImg">
+										<img src="__ROOT__/Uploads/userPic/{$cur.userPic}" width="150" alt="我的头像" title="我的头像" />
+									</div>
+								</div>
+								<div class="media-body">
+									<div class="userInfo">
+										<ol class="list-inline">
+											<li class="col-md-6"><span class="glyphicon glyphicon-user"></span>&nbsp;{$cur.name}&nbsp;您好！</li>
+											<li class="col-md-6">邮箱：{$cur.email|isUserInfo}</li>
+											<li class="col-md-6">性别：{$cur.male|getSex}</li>
+											<li class="col-md-6">手机：{$cur.phone|isUserInfo}</li>
+											<li class="col-md-6">等级：{$cur.role_id|getLevel}</li>
+											<li class="col-md-6">微信号：{$cur.weChat|isUserInfo}</li>
+											<li class="col-md-6">创建时间：{$cur.createTime|date="Y-m-d H:m:s",###}</li>
+											<li class="col-md-6">登录次数：{$cur.count}</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bottom">
+							<div class="logInfo">
+								<table class="table table-hover">
+									<thead bgColor="#e0e0e0">
+										<th>#</th>
+										<th>登陆用户</th>
+										<th>登陆IP</th>
+										<th>IP地址</th>
+										<th>登陆时间</th>
+									</thead>
+									<tbody>
+										<volist name="loginInfo" id="vo">
+										<tr>
+											<td>{$i}</td>
+											<td>{$vo.admin_name}</td>
+											<td>{$vo.admin_loginIp}</td>
+											<td>{$vo.admin_loginIp|getIpCity}</td>
+											<td>{$vo.admin_loginTime|date="Y-m-d H:m:s",###}</td>
+										</tr>
+										</volist>
+									</tbody>
+								</table>
+							</div>
+							<div class="list-page text-center sabrosus">{$pagestr}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--Basic Scripts-->
+		<script src="__PUBLIC__/Admin/style/jquery_002.js"></script>
+		<script src="__PUBLIC__/Admin/style/bootstrap.js"></script>
+		<script src="__PUBLIC__/Admin/style/jquery.js"></script>
+		<!--Beyond Scripts-->
+		<script src="__PUBLIC__/Admin/style/beyond.js"></script>
+	</body>
+</html>

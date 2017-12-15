@@ -1,0 +1,157 @@
+.navbar-brand{
+	height: 45px;
+	line-height: 40px;
+}
+
+.navbar .navbar-inner .navbar-header .navbar-account .account-area>li 
+.dropdown-menu.dropdown-login-area>li.dropdown-footer{
+	text-align: center;
+}
+
+.page-body .page-search{
+	padding-bottom:10px;
+}
+.page-body .page-search form div{
+	margin-right: 15px;
+}
+.page-body .page-search form div label{
+	color: #000;
+	font-weight: 600;
+}
+
+.page-body .result-wrap{
+	box-sizing:border-box;
+	padding:0 20px;
+}
+.page-body .result-title h1{
+	display: block;
+	font-size:28px;
+	font-weight: bold;
+	margin: 20px 0 ;
+}
+
+.page-body .result-content .sys-info-list li{
+	list-style: none;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px dashed #C0C0C0;
+	
+}
+.page-body .result-content .sys-info-list li label{
+	width: 15%;
+	font-size: 14px;
+	text-align: right;
+	color: #333333;
+}
+
+.page-body .result-content .sys-info-list li span{
+	margin-left:1%;
+}
+
+.icon-user:before{
+	content:  "e972";
+}
+
+/*
+ * 查看详细
+ */
+.page-body .particular{
+	background: white;
+}
+.page-body .particular .row{
+	border-bottom: 1px solid #CCCCCC;
+}
+.page-body .particular .row ol li{
+	color: #999;
+}
+
+.page-body .particular .row ol li + li{
+	margin-left: 25px;
+}
+
+.page-body .particular .body-content{
+	padding: 20px 10px;
+}
+
+a:hover{
+	text-decoration: none;
+}
+#sidebar{
+	background: white;
+	overflow: hidden;
+}
+/*左侧*/
+.panel-group {
+  margin-bottom:0;
+}
+.panel-group .panel {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+.panel-group .panel + .panel {
+  margin-top: 0;
+}
+.panel-group .panel-heading {
+  border-bottom: 1px solid #ccc;
+}
+.panel-group .panel-heading + .panel-collapse > .panel-body,
+.panel-group .panel-heading + .panel-collapse > .list-group {
+  border-top: 1px solid #ddd;
+}
+.panel-group .panel-footer {
+  border-top: 0;
+}
+.panel-group .panel-footer + .panel-collapse .panel-body {
+  border-bottom: 1px solid #ddd;
+}
+.panel-default {
+  border-color: transparent;
+}
+.panel-default > .panel-heading {
+  color: #333;
+  background-color: white;
+  cursor: pointer;
+  border-color: #ddd;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ddd;
+}
+.panel-default > .panel-heading .badge {
+  color: #f5f5f5;
+  background-color: #333;
+}
+.panel-default > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #ddd;
+}
+.panel-title>.small, .panel-title>.small>a, .panel-title>a, .panel-title>small, .panel-title>small>a{
+	display: block;
+	font-size: 13px;
+	color: #737373;
+	width: 100%;
+}
+.panel-title>small>a:hover{
+	color: red;
+}
+.glyphicon-chevron-right:before{
+  font-size: 8px;
+	font-weight: 0;
+	color: #a0a0a0;
+}
+
+/* 
+*设置tabel
+*/
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+	max-width: 600px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+/*css sabrosus style pagination*/
+div.sabrosus{padding:3px;text-align:center; margin-top: 10px}
+div.sabrosus a{border:#9aafe5 1px solid;padding:2px 5px;margin:0 2px 0 0;text-decoration:none;}
+div.sabrosus a:hover{border:#2b66a5 1px solid;color:#000;background-color:lightyellow;}
+div.pagination a:active{border:#2b66a5 1px solid;color:#000;background-color:lightyellow;}
+div.sabrosus span.current{border:navy 1px solid;padding:2px 5px;font-weight:bold;color:#fff;margin:0 2px 0 0;background-color:#2e6ab1}
+div.sabrosus span.disabled{border:#929292 1px solid;padding:2px 5px;margin:0 2px 0 0;}

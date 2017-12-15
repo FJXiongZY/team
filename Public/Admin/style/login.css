@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+html {
+	height: 100%;
+	width: 100%;
+	background: #f6f7f6;
+	position: relative;
+}
+
+.centerColor {
+	width: 100%;
+	height: 175px;
+	background: #29b1ff;
+	position: absolute;
+	top: 50%;
+	margin-top: -87.5px;
+}
+
+.box {
+	width: 580px;
+	height: 280px;
+	background: #f7f7f7;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -140px 0 0 -290px;
+	box-shadow:0 8px 8px #ccc ;
+}
+
+.box .box_top {
+	width: 100%;
+	height: 90px;
+	background: url('../images/log.jpg') no-repeat;
+}
+.box .box_boder{
+	width:580px;
+	height: 190px;
+}
+
+.box .box_boder .box_boder_left {
+	height: 100%;
+	width: 190px;
+	float: left;
+	position: relative;
+}
+.box .box_boder .box_boder_left .userPic{
+	width:120px;
+	height: 120px;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -70px 0 0 -60px;
+	overflow: hidden;
+}
+
+.box .box_boder .box_boder_right{
+	height: 190px;
+	margin-left: 190px;
+	box-sizing:border-box;
+	padding:25px 0 0 45px;
+	box-sizing: border-box;
+}
+.box .box_boder .box_boder_right .btn-info{
+	width: 150px;
+	margin-left: 50px;
+}

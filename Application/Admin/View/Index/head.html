@@ -1,0 +1,38 @@
+<!-- 头部 -->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="navbar-container">
+            <div class="navbar-header pull-left">
+                <a href="__MODULE__/Index/index" class="navbar-brand">后台管理系统</a>
+            </div>
+            <div class="navbar-header pull-right">
+                <div class="navbar-account">
+                    <ul class="account-area">
+                        <li>
+                            <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                <div class="avatar" title="View your public profile">
+                                    <img src="__ROOT__/Uploads/userPic/{$Think.session.userPic}">
+                                </div>
+                                <section>
+                                    <h2><span class="profile"><span>{$Think.session.admin_name}&nbsp;&nbsp;<i class="fa fa-chevron-down"></i></span></span></h2>
+                                </section>
+                            </a>
+                            <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
+                                <li class="dropdown-footer">
+                                    <a href="__MODULE__/Administrator/AdministratorInfo">个人中心</a>
+                                </li>
+                                <li class="dropdown-footer">
+                                    <a href="__APP__/Home/Index/index">返回前台</a>
+                                </li>
+                                <li class="dropdown-footer">
+                                    <a href="__MODULE__/Login/logout">退出登录</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /头部 -->

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>团队建设-团队建设管理</title>
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__PUBLIC__/Admin/style/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/font-awesome.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/weather-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/style/iconfont.css">
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__PUBLIC__/Admin/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/Admin/style/demo.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/typicons.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/style/Admin.css">
+    
+</head>
+<body>
+    <!-- 头部 -->
+    <include file="Index/head"/>
+    <!-- /头部 -->
+    
+    <div class="main-container container-fluid">
+        <div class="page-container">
+            
+            <include file="Index/left"/>
+            <!-- 右侧内容 -->
+            <div class="page-content">
+                <!-- 面包屑导航 -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="__MODULE__/Index/index">首页</a>
+                        </li>
+                        <li class="active">团队建设管理</li>
+                    </ul>
+                </div>
+                <!-- /面包屑导航 -->
+                <!-- 列表内容 -->
+                <div class="page-body">
+                    <!-- 条件搜索 -->
+                    <div class="page-search">
+                        <form class="form-inline" action="__SELF__" method="post">
+                            <div class="form-group">
+                                <label>选择状态:</label>
+                                <select name="Bot_status" class="form-control">
+                                    <option <if condition="$condtion['status'] eq 1">selected="selected"</if> value="1">上线信息</option>
+                                    <option <if condition="$condtion['status'] eq 2">selected="selected"</if> value="2">下线信息</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name="Bot_parent" class="form-control">
+                                    <option value="">---选择全部---</option>
+                                    <volist name="BotParent" id="vo">
+                                        <option <if condition="$condtion['parent'] eq $vo['auth_id']">selected="selected"</if> value="{$vo.auth_id}">{$vo.auth_name}</option>
+                                    </volist>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Bot_title" class="form-control" placeholder="标题名称">
+                            </div>
+                            <button type="submit" class="btn btn-primary shiny">查询</button>
+                        </form>
+                    </div>
+                    <!-- /条件搜索 -->
+                    <!-- 功能 -->
+                    <volist name="info4" id="info4">
+                    <if condition="(!in_array($info4['auth_id'], $info3)) AND ($info4['auth_pid'] eq $curPid['auth_id'])">
+                    <a type="button" tooltip="{$info4.auth_name}" id="{$info4.auth_a}" class="btn btn-sm btn-colorpicker"><i class="{$info4.auth_icon}"></i>{$info4.auth_name}
+                    </a> &nbsp;
+                    </if>
+                    </volist>
+                    <!-- /功能 -->
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="flip-scroll">
+                <form id="myform" name="myform" method="post">
+                    <table class="table table-bordered table-hover">
+                        <thead class="">
+                            <tr>
+                                <th class="text-center">操作</th>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">标题</th>
+                                <th class="text-center">父级</th>
+                                <th class="text-center">创建时间</th>
+                                <th class="text-center">状态</th>
+                                <th class="text-center">浏览量</th>
+                                <th class="text-center">查看</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <volist name="data" id="vo">
+                            <tr>
+                                <td align="center"><input type="checkbox" name="operate" value="{$vo.id}"></td>
+                                <td align="center">{$vo.id}</td>
+                                <td align="center">{$vo.title}</td>
+                                <td align="center">{$vo.parent|getFrontParent}</td>
+                                <td align="center">{$vo.createTime|date="Y-m-d H:m:s",###}</td>
+                                <td align="center">{$vo.status|getFrontStatus}</td>
+                                <td align="center">{$vo.count}</td>
+                                <td align="center">
+                                    <a href="__MODULE__/Bot/particular/admin_id/{$vo.id}" class="btn btn-info btn-sm shiny">
+                                        <i class="fa fa-eye"></i> 查看详细
+                                    </a>
+                                </td>
+                            </tr>
+                            </volist>
+                        </tbody>
+                    </table>
+                    <div class="list-page text-center sabrosus">{$pagestr}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+                <!-- /列表内容 -->
+            </div>
+            <!-- /右侧内容 -->
+        </div>
+    </div>
+    <!--Basic Scripts-->
+    <script src="__PUBLIC__/Admin/style/jquery_002.js"></script>
+    <script src="__PUBLIC__/Admin/style/bootstrap.js"></script>
+    <script src="__PUBLIC__/Admin/style/jquery.js"></script>
+    <!--Beyond Scripts-->
+    <script src="__PUBLIC__/Admin/style/beyond.js"></script>
+    <script src="__PUBLIC__/Admin/style/beyond.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/style/dialog/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/style/dialog.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Common/js/common.js"></script>
+    <script>
+        var successUrl = '{:U("Admin/Bot/showList")}';
+        //添加
+        $("#add").on("click", function(){
+            window.location = '{:U("Admin/Bot/add")}';
+        })
+        //编辑菜单
+        $('#update').on("click",function(){
+            var url = '{:U("Admin/Bot/update")}';
+            updateFn(url);
+            return false;
+        });
+        //删除
+        $('#del').on("click",function(){
+            var url = '{:U("Admin/Bot/del")}';
+            batch('是否删除?', url, successUrl);
+            return false;
+        });
+        //上线
+        $("#toLine").on("click", function(){
+            var url = '{:U("Admin/Bot/toLine")}';
+            batch('是否上线?', url, successUrl);
+            return false;
+        });
+
+        //下线
+        $("#offLine").on("click", function(){
+            var url = '{:U("Admin/Bot/offLine")}';
+            batch('是否下线?', url, successUrl);
+            return false;
+        });
+    </script>
+    
+</body></html>

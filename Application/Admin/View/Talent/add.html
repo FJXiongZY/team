@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>人才培养-添加信息</title>
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="__PUBLIC__/Admin/style/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/font-awesome.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/weather-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/style/iconfont.css">
+    <!--Beyond styles-->
+    <link id="beyond-link" href="__PUBLIC__/Admin/style/beyond.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/Admin/style/demo.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/typicons.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/style/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/style/Admin.css">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+    
+</head>
+<body>
+    <!-- 头部 -->
+    <include file="Index/head"/>
+    <!-- /头部 -->
+    
+    <div class="main-container container-fluid">
+        <div class="page-container">
+            <!-- 左侧 -->
+            <include file="Index/left"/>
+            <!-- /左侧 -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="__MODULE__/Index/index">首页</a>
+                        </li>
+                        <li>
+                            <a href="__MODULE__/Talent/showList">人才培养管理</a>
+                        </li>
+                        <li class="active">添加信息</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-header bordered-bottom bordered-blue">
+                                    <span class="widget-caption">新增团队信息</span>
+                                </div>
+                                <div class="widget-body">
+                                    <div id="horizontal-form">
+                                        <form class="form-horizontal" id="addForm" role="form">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right">标题</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" id="Talent_title" placeholder="请输入标题" name="Talent_title" required="required" type="text">
+                                                    <input type="hidden" name="identify" value="{$identify}">
+                                                </div>
+                                                <p class="help-block col-sm-4 red">* 必填</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right">父级</label>
+                                                <div class="col-sm-6">
+                                                    <select name="Talent_parent" id="Talent_parent" style="width: 100%;">
+                                                        <option selected="selected" value="0">--父级--</option>
+                                                        <volist name="TalentParent" id="tPid">
+                                                        <option value="{$tPid.auth_id}">{$tPid.auth_name}</option>
+                                                        </volist>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label no-padding-right">内容</label>
+                                                <div class="col-sm-8">
+                                                    <textarea style="height:200px;" id="editor"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-info">保存信息</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+    </div>
+    <!--Basic Scripts-->
+    <script src="__PUBLIC__/Admin/style/jquery_002.js"></script>
+    <script src="__PUBLIC__/Admin/style/bootstrap.js"></script>
+    <script src="__PUBLIC__/Admin/style/jquery.js"></script>
+    <!--Beyond Scripts-->
+    <script src="__PUBLIC__/Admin/style/beyond.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/style/dialog/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/style/dialog.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Common/js/common.js"></script>
+    <script>
+        var ue = UE.getEditor('editor');
+        $("#addForm").submit(function(){
+            var url = '__SELF__';
+            var data = $(this).serialize();
+            var successUrl = '{:U("Admin/Talent/showList")}';
+            if (!$('#Talent_title').val()) {
+                dialog.error("标题不能为空");
+            }else if (!$('#Talent_parent').val()) {
+                dialog.error("请选择父级");
+            }else{
+                ajaxFn(url,data,successUrl);
+            }
+            return false;
+        })
+    </script>
+    
+</body>
+</html>

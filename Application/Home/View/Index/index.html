@@ -1,0 +1,64 @@
+
+
+		<include file="Index/top"/>
+		
+		<!--轮播图-->
+		<div class="container text-center" id="videoCarouserTop">
+			<div class="row">
+			<div id="big_carousel" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<volist name="bigData" id="k">
+						<li data-target="#big_carousel" class="<if condition='$i eq 1'>active</if>" data-slide-to="{$i-1}"></li>
+					</volist>
+				</ol>
+				<div class="carousel-inner">
+					<volist name="bigData" id="bigData">
+						<div class="item  <if condition='$i eq 1 '>active</if> ">
+							<img src="__ROOT__/Uploads/BigPic/{$bigData.big_pic}" title="{$bigData.big_describe}" alt="{$bigData.big_describe}">
+						</div>
+					</volist>
+				</div>
+
+				<a class="left carousel-control" href="#big_carousel" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				</a>
+				<a href="#big_carousel" class="right carousel-control" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div>
+			</div>
+		</div>
+		<!--/轮播图-->
+		
+		<!--网站内容-->
+		<div class="container" id="webBody">
+			<div class="row">
+				<volist name="parentInfo" id="vo1" offset="0" length="3">
+					<div class="col-md-4 col-sm-12 col-xs-12 text_row">
+						<h4 class="webBody_title">{$vo1.auth_name}</h4>
+						<ul>
+							<volist name="sonInfo" id="vo2">
+								<if condition="$vo2['auth_pid'] eq $vo1['auth_id']">
+									<li><span class="glyphicon glyphicon-plus-sign"></span><a href="__MODULE__/Second/index/name/{$vo2.auth_pid|md5Pid}/gbrk/{$vo2.auth_a}">{$vo2.auth_name}</a></li>
+								</if>
+							</volist>
+						</ul>
+					</div>
+				</volist>
+			</div>
+		</div>
+		<!--/网站内容-->
+		
+		<!--页脚-->
+		<include file="Index/footer"/>
+		<!--/页脚-->
+		
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="__PUBLIC__/Home/js/jquery-1.11.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+		<script src="__PUBLIC__/Home/js/index.js"></script>
+	</body>
+
+</html>
